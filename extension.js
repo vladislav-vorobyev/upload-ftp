@@ -15,6 +15,25 @@ function activate(context) {
 			const editor = vscode.window.activeTextEditor;
 
 			if (editor) {
+				// Save a document if it is dirty
+				const document = editor.document;
+				if (document.isDirty) {
+					try {
+						// Call the save method
+						const success = await document.save();
+						if (success) {
+							vscode.window.showInformationMessage(`Saved: ${document.fileName}`);
+						} else {
+							vscode.window.showWarningMessage(`Failed to save: ${document.fileName}`);
+						}
+					} catch (error) {
+						vscode.window.showErrorMessage(`Error saving file: ${error.message}`);
+					}
+				}
+
+				// Exit if save was fail
+				if (document.isDirty) return;
+
 				// Get the URI of the document open in the editor
 				const documentUri = editor.document.uri;
 
