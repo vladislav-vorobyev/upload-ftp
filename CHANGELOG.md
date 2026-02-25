@@ -16,3 +16,10 @@
 ## [0.0.3] - 2022-09-19
 ### Added
 - Support upload directories.
+
+## [0.1.0] - 2026-02-25
+### Removed
+- multiple upload has been removed;
+### Added
+- support upload current file from editor;
+- support one config file for one server.

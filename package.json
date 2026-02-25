@@ -1,68 +1,74 @@
 {
-  "name": "upload-ftp",
-  "displayName": "upload-ftp",
-  "description": "a ftp tool to help upload loacl file to server.",
-  "repository": "https://github.com/SeanPcWoo/upload-ftp",
-  "publisher": "wupengcheng",
-  "icon": "images/icon.png",
-  "version": "0.0.3",
-  "engines": {
-    "vscode": "^1.70.0"
-  },
-  "categories": [
-    "Other"
-  ],
-  "activationEvents": [
-    "*"
-  ],
-  "main": "./extension.js",
-  "contributes": {
-    "commands": [
-      {
-        "command": "upload-ftp.upload",
-        "title": "upload files to FTP Server"
-      }
-    ],
-    "menus": {
-      "explorer/context": [
-        {
-          "command": "upload-ftp.upload",
-          "title": "upload-ftp",
-          "group": "navigation"
-        }
-      ]
-    },
-    "keybindings": [
-      {
-        "command": "upload-ftp.upload",
-        "key": "alt+d",
-        "mac": "cmd+d"
-      }
-    ]
-  },
-  "scripts": {
-    "lint": "eslint .",
-    "pretest": "npm run lint",
-    "test": "node ./test/runTest.js"
-  },
-  "devDependencies": {
-    "@types/glob": "^7.2.0",
-    "@types/mocha": "^9.1.1",
-    "@types/node": "16.x",
-    "@types/vscode": "^1.70.0",
-    "@vscode/test-electron": "^2.1.5",
-    "eslint": "^8.20.0",
-    "glob": "^8.0.3",
-    "mocha": "^10.0.0",
-    "typescript": "^4.7.4"
-  },
-  "directories": {
-    "test": "test"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "ftp": "^0.3.10"
-  }
+	"name": "upload-to-ftp",
+	"displayName": "upload-to-ftp",
+	"description": "Simple tool to help upload local file to FTP server.",
+	"repository": "https://github.com/vladislav-vorobyev/upload-to-ftp",
+	"publisher": "vladislav-vorobyev",
+	"icon": "images/icon.png",
+	"version": "0.1.0",
+	"engines": {
+		"vscode": "^1.70.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"*"
+	],
+	"main": "./extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "upload-to-ftp.upload",
+				"title": "upload file to FTP Server"
+			}
+		],
+		"menus": {
+			"explorer/context": [
+				{
+					"command": "upload-to-ftp.upload",
+					"title": "upload-ftp",
+					"group": "navigation"
+				}
+			]
+		},
+		"keybindings": [
+			{
+				"command": "upload-to-ftp.upload",
+				"key": "alt+d",
+				"mac": "cmd+d"
+			}
+		]
+	},
+	"scripts": {
+		"lint": "eslint .",
+		"pretest": "npm run lint",
+		"test": "node ./test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.2.0",
+		"@types/mocha": "^9.1.1",
+		"@types/node": "16.x",
+		"@types/vscode": "^1.70.0",
+		"@vscode/test-electron": "^2.1.5",
+		"eslint": "^8.20.0",
+		"glob": "^8.0.3",
+		"mocha": "^10.0.0",
+		"typescript": "^4.7.4"
+	},
+	"directories": {
+		"test": "test"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"ftp": "^0.3.10",
+		"vsce": "^2.11.0"
+	},
+	"__metadata": {
+		"installedTimestamp": 1747848115437,
+		"targetPlatform": "undefined",
+		"size": 11749054
+	}
 }
