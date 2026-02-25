@@ -5,37 +5,28 @@ const fs = require('fs');
 // upload a local file to the server
 function upload2FtpServer(Server, localFile, Remotefile) {
     return new Promise((resolve, reject) => {
-        const c = new ftp();
-        c.on('ready', () => {
-            // mkdirs
-            const dir = path.dirname(Remotefile);
-            c.mkdir(dir, true, (err) => {
-                if (err) {
-                    reject(err);
-                }
-            });
 
-            fs.access(localFile, fs.F_OK, (err) => {
-                if (err) {
-                    reject(err)
-                }
-              
-                c.put(localFile, Remotefile, (err) => {
-                    if (err) {
-                        reject(err);
-                    } else {
-                        resolve();
-                    }
-                    c.end();
-                });
-            })
+        const client = new ftp();
+
+        client.on('ready', () => {
+            // create a dir for remote file
+            client.mkdir(path.dirname(Remotefile), true, reject);
+
+            // check access to local file
+            fs.access(localFile, fs.F_OK, reject);
+
+            // upload the file
+            client.put(localFile, Remotefile, reject);
+
+            // close connection
+            client.end();
+
+            resolve();
         });
 
-        c.on('error', (err) => {
-            reject(err);
-        })
+        client.on('error', reject);
 
-        c.connect({
+        client.connect({
             host: Server.host,
             user: Server.user,
             password: Server.password,
@@ -45,4 +36,3 @@ function upload2FtpServer(Server, localFile, Remotefile) {
 }
 
 module.exports = upload2FtpServer;
-
