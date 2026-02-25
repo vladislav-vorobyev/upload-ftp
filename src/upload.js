@@ -14,7 +14,7 @@ function getVscodePath(filepath) {
         if (stats.isDirectory()) {
             if (files[i] === '.vscode') {
                 return filename;
-            } else {2051
+            } else {
                 getVscodePath(filename);
             }
         }
