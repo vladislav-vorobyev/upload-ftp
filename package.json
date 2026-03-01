@@ -13,7 +13,7 @@
 		"Other"
 	],
 	"activationEvents": [
-		"*"
+		"activate"
 	],
 	"main": "./extension.js",
 	"contributes": {
@@ -65,10 +65,5 @@
 	"dependencies": {
 		"ftp": "^0.3.10",
 		"vsce": "^2.11.0"
-	},
-	"__metadata": {
-		"installedTimestamp": 1747848115437,
-		"targetPlatform": "undefined",
-		"size": 11749054
 	}
 }
