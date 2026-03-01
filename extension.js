@@ -54,7 +54,7 @@ function activate(context) {
 		upload(filePath, (localfile, remotefile, err) => {
 			if (!err) {
 				channel.appendLine(`[Success]: ${localfile} >> remote:${remotefile}\t`);
-				vscode.window.showInformationMessage('Uploaded');
+				vscode.window.showInformationMessage(`Uploaded: ${remotefile}`);
 			} else {
 				channel.appendLine(`[Failed]: ${localfile} >> remote:${remotefile}\t`);
 				// let msg = JSON.parse( JSON.stringify( err ) );
@@ -73,8 +73,8 @@ function activate(context) {
 		// channel.show();
 	});
 
-	channel.appendLine("push")
 	context.subscriptions.push(disposable);
+	channel.appendLine("upload-to-ftp started");
 }
 
 // this method is called when your extension is deactivated
